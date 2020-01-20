@@ -1,0 +1,32 @@
+ <div *ngIf="tableData" >
+   <h1>Total</h1>
+   <div *ngIf="tableData.length > 0">
+    <h3>Total Amount: {{sum}}</h3>
+ <h1 class="text-center">Table Data</h1>
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name </th>
+        <th>Email </th>
+        <th>Phone </th>
+        <th>Source </th>
+        <th>Recipient </th>
+        <th>Amount </th>
+        <th>Scheduledate</th>
+        <th>Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Send of tableData" >
+        <td> {{Send?.name}} </td>
+        <td>{{Send?.email}}</td>
+        <td> {{Send?.Phonenumberofcounterparty}} </td>
+        <td> {{Send?.Sourceaccountcurrency}} </td>
+        <td> {{Send?.Recipientaccountcurrency}} </td>
+        <input type="text" [(ngModel)]="Send.Amount" (keyup)="add($event)"/>
+        <td>{{Send?.Scheduledate}} </td>
+        <td>{{Send?.Reference}} </td>
+      </tr>
+    </tbody>
+  </table> 
+</div>
